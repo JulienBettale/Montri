@@ -1,0 +1,23 @@
+<h2>Renseignez une valeur pour chaque champs</h2>
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <!-- #form référence local -->
+    <div class="row form-groupe">
+        <div class="col-sm-6">
+            <input type="number" name="firstNumber" class="form-control input-1" placeholder="Valeur 1" ngModel>
+            <span class="material-icons check_circle" [ngStyle]="{display: inputIsCorrect(form)}">check_circle</span>
+            <span class="material-icons highlight_off" [ngStyle]="{display: inputIsNotCorrect(form)}">highlight_off</span>
+        </div>
+        <div class="col-sm-6">
+            <input type="number" name="secondNumber" class="form-control input-2" placeholder="Valeur 2" ngModel>
+            <span class="material-icons check_circle" [ngStyle]="{display: inputIsCorrect(form)}">check_circle</span>
+            <span class="material-icons highlight_off" [ngStyle]="{display: inputIsNotCorrect(form)}">highlight_off</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <button type="submit" (click)="sendValue(form.value)" [disabled]="isValid(form)" class="visualize btn">Visualiser</button>
+        </div>
+    </div>
+    <p [ngStyle]="{display: inputIsNotCorrect(form)}" class="msgErrorValeur">* Le champ "Valeur 1" doit être inférieur au champ "Valeur 2"<br></p>
+    <p [ngStyle]="{display: errorNegativeValue(form)}" class="msgErrorPositiveValeur">* Les champs doit être positif</p>
+</form>

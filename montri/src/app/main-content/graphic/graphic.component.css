@@ -1,0 +1,8 @@
+google-chart {
+    width: 100%;
+    height: auto;
+}
+
+google-chart.div:nth-child(1) {
+    margin: 0 auto!important;
+}
